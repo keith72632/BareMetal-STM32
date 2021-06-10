@@ -19,3 +19,29 @@ Command Line
         arm-none-eabi-objcopy
     Assembler:
         arm-none-eabi-as
+Flags
+     -c = compile only. gcc default is to compile and link
+     -S = stop after compilation but does not assemble. output in assembly
+     -mcpu=cortex-m4 = machine cpu for cortex m4 
+     -march=cortex-m4 = machine architecture
+     -mthumb = thumb state
+     -marm = ARM state
+     -O0 = no optomization
+Build Process: preprocessing->compilation->linking: *.c -> *.i -> *.s -> *.o
+    *.c = source file
+    *.i = input coude
+    *.s = assembly
+    *.o = object file (opcodes)
+    *.elf = executable and linkable format. use objcopy to analyze
+    *.bin = binary 
+Analyzing .o files
+    -main.o is in elf format
+    -file format standards describes ways of organizing elemnets like data, read only.
+    -objdump flags:
+        -h = headers for data
+        -d = disassembly(text only)
+        -D = disassembly)(all)
+Other File Formats
+    COFF(Common Object File Format): introduced by Unix system
+    AIF(Arm Image Format): Introduced by ARM
+    SRECORD: motorola
