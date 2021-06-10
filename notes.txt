@@ -1,0 +1,21 @@
+Cross Compilation
+
+Download:
+    https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
+
+Add to Path
+    export PATH=$PATH:~/Tools/gcc-arm-none-eabi-10-2020-q4-major/bin
+
+Command Line
+    Compile, Linker, and Assembler:
+        arm-non-eabi-gcc
+    Linker:
+        arm-none-eabi-ld
+    Elf File Analyzer:
+        arm-none-eabi-objdump
+        arm-none-eabi-readelf
+        arm-none-eabi-nm
+    Format Converter:
+        arm-none-eabi-objcopy
+    Assembler:
+        arm-none-eabi-as
