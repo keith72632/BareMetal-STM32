@@ -45,3 +45,35 @@ Other File Formats
     COFF(Common Object File Format): introduced by Unix system
     AIF(Arm Image Format): Introduced by ARM
     SRECORD: motorola
+
+Code and Data
+    Code: instructions stored in the FLASH memory. Read Only 
+    Data: varaibles are stored in main memory(RAM). Stored in RAM because it change. Read/Write
+    ROM: .text
+    RAM: .data .rodata .bss
+
+Linker and Locator
+    Use the linker to merge similar sections of different object files and resolve undefined symbols.
+Locator, which is part of linker, takes the help of the linker script to understand how you wish to 
+merge different sections. 
+    Store final execution(.data .rodata .text) in code(ROM, FLASH). .data is copied to RAM in startup
+code. 
+    Symbols: _edata, _sdata, _etext
+
+Different Data Sections of a Program(Do more research later)
+    Local: local_un_data, local_i_data = local unitialized and initialized.
+           local_un_s_data, local_i_s_data = local uinitialized and initialize static data
+    Global: global_un_data, global_i_data, global_un_s_data, global_i_s_data
+.bss vs data
+    .bss = Blocked Started by Symbol. Unitialied static variables and global variable are stored here
+    Since these variables do not have intial values, they are not required to be stored in .data. Thye 
+would unecissarily consume FLASH. 
+    ex. int g_un_data1; == .bss
+        static int g_un_data1 == .bss
+        int g_i_data = 5; == .data
+
+Startup File Objective
+    The startup file is responsible for setting up the right environment for code to run. Startup 
+calls main. Also contains targets like vector tables. Takes care of placemnt of this vector table. 
+Takes care of stack placement(sometimes). Resonsible for .data and .bss sections. 
+

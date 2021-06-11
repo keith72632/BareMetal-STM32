@@ -5,6 +5,8 @@ all: main
 
 main.o: main.c
 	${CC} ${CFLAGS} $^ -o $@
+led.o: led.c
+	${CC} ${CFLAGS} $^ -o $@
 main.s: main.c
 	${CC} -S -mcpu=cortex-m4 -mthumb -std=gnu11 $^ -o $@ 
 test.o: test.c
