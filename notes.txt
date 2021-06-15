@@ -77,3 +77,6 @@ Startup File Objective
 calls main. Also contains targets like vector tables. Takes care of placemnt of this vector table. 
 Takes care of stack placement(sometimes). Resonsible for .data and .bss sections. 
 
+1) Setup vector table. 15 exceptions and 82 IRQs multiplied by 4 is 392 bytes
+    *create an array to hold MSP and handler's addresses
+    *instruct compiler not to include vector array in data section
