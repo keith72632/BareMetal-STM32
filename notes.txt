@@ -80,3 +80,27 @@ Takes care of stack placement(sometimes). Resonsible for .data and .bss sections
 1) Setup vector table. 15 exceptions and 82 IRQs multiplied by 4 is 392 bytes
     *create an array to hold MSP and handler's addresses
     *instruct compiler not to include vector array in data section
+
+
+Linker Scripts 
+    *explains how different section of object files should be merged
+    *must supply linker script at the linking phase to the linker using -T option
+    Commands:
+        *ENTRY = set the entry point address info in the header of elf. In this point
+        im using the reset handler. Syntax = ENTRY(__symbol__) ex. ENTRY(Reset_Handler)
+        *MEMORY = used to describe different memories present in the target and their start
+        address. Assign addresses to merged sections. Calculate the total code and data consumed.
+        Memmory can fine tune various memories available. Syntax MEMORY {
+            name(attr): ORIGIN = origin, LENGTH = len  
+            }
+        attr = R read only, w read and write, x sections conatining executable code, i initialized
+        *SECTIONS = used to create different ouput sections. This command controls the order
+        in which different output sections appear in the elf file. Also mention the placement
+        of a section in a memory region. For ex. you can instuct the linker to place the
+        .text section in the FLASH memory region, which is described byt the MEMORY command.
+        Use the wildcard symbol '*' infront of bracket for all files
+        *KEEP
+        *ALIGN
+        *AT>
+        *Location counter(.) = updates this symbol with location information. Appears onlu
+        in SECTIONS. Incrmented by the size of the output section
