@@ -103,4 +103,9 @@ Linker Scripts
         *ALIGN
         *AT>
         *Location counter(.) = updates this symbol with location information. Appears onlu
-        in SECTIONS. Incrmented by the size of the output section
+        in SECTIONS. Incrmented by the size of the output section. Only tacks VMA.  
+    A symbol is the name of an address. Symbol declarations are not the same as variables. 
+when compiled, compiler assigns things like variables and functions to addresses using a 
+Symbol Table. 
+    use -Wl,-Map=final.map to generate map file where data placment is displayed. Without ALIGN
+symbols, you can cleary see the data isn't aligned. ALIGN() take number of bytes as argument. 
